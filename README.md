@@ -1,0 +1,2 @@
+# alurabank
+ New Javascript project
