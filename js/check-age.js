@@ -1,6 +1,8 @@
 export default function validarIdade (campo) {
     const dataNascimento = new Date(campo.value);
-    calcularIdade(dataNascimento);
+    if(!calcularIdade(dataNascimento)) {
+        campo.setCustomValidity("O usuário não é maior de idade!");
+    }
 }
 
 function calcularIdade (data) {
@@ -8,9 +10,9 @@ function calcularIdade (data) {
     const difDatas = dataAtual - data;
     const idade = Math.trunc((difDatas / (1000 * 60 * 60 * 24))/365);
     if (idade >= 18) {
-        console.log("Maior de idade")
+        return true;
     } else {
-        console.log("Menor de idade");
+        return false;
     }
 }
 
